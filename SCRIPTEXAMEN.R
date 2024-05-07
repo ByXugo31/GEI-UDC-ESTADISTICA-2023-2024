@@ -126,27 +126,3 @@ NormalInterval <- function(media, desviacion, A, B) {
 
 #Ejemplo de uso con A = 6 B = 8 media = 14 y desviacion = 6
 NormalInterval(14,6,6,8)
-
-calcular_cuasidesviacion_tipica_fichero <- function(fichero) {
-  # Cargar el fichero de datos
-  load(fichero)
-  
-  # Asegurarse de que 'Potencia' existe en los datos cargados
-  if (!"Potencia" %in% names(data)) {
-    stop("La variable no se encuentra en los datos cargados.")
-  }
-  
-  # Calcular la media
-  media <- mean(data$Potencia, na.rm = TRUE)
-  
-  # Calcular la cuasidesviación típica
-  cuasidesviacion_tipica <- mean(abs(data$Potencia - media), na.rm = TRUE)
-  
-  # Devolver la cuasidesviación típica
-  return(cuasidesviacion_tipica)
-}
-
-calcular_cuasidesviacion_tipica_fichero("top500.RData")
-
-
-
